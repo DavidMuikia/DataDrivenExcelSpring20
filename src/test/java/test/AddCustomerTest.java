@@ -57,7 +57,7 @@ WebDriver driver;
 		addCustomer.verifyEnteredCustomerAndDelete();
 		
 		
-		//BrowserFactory.tearDown();
+		BrowserFactory.tearDown();
 		
 	}
 

@@ -1,14 +1,10 @@
 package page;
 
-import java.util.Random;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
 public class AddCustomerPage extends BasePage{
 	
@@ -35,7 +31,7 @@ WebDriver driver;
 	WebElement PHONE_FIELD_LOCATOR;
 	@FindBy(how = How.XPATH, using = "//*[@id=\"address\"]")
 	WebElement ADDRESS_FIELD_LOCATOR;
-	@FindBy(how = How.XPATH, using = "//*[@id=\"citi\"]")
+	@FindBy(how = How.XPATH, using = "//*[@id=\"city\"]")
 	WebElement CITY_FIELD_LOCATOR;
 	@FindBy(how = How.XPATH, using = "//*[@id=\"state\"]")
 	WebElement STATE_FIELD_LOCATOR;
@@ -64,21 +60,22 @@ WebDriver driver;
 	
 	String enteredName;
 	public void insertFullName(String fullName) {
-		enteredName = fullName + BasePage.randomNumGenerator();
-		FULLNAME_FIELD_LOCATOR.sendKeys(enteredName);
+		enteredName = fullName + randomNumGenerator();
+		FULLNAME_FIELD_LOCATOR.sendKeys(fullName);
 	}
 	
 	public void insertCompanyName(String company) {
-		BasePage.dropDown(COMPANY_DROPDOWN_LOCATOR, company);
+		dropDown(COMPANY_DROPDOWN_LOCATOR, company);
 	}
 	
 	public void insertEmail(String email) {
-		String enteredEmail = BasePage.randomNumGenerator() + email;
+		String enteredEmail = randomNumGenerator() + email;
 		EMAIL_FIELD_LOCATOR.sendKeys(enteredEmail);
 	}
 	
 	public void insertPhoneNumber(String phoneNum) {
-		PHONE_FIELD_LOCATOR.sendKeys(phoneNum);
+		String enteredphoneNum = randomNumGenerator() + phoneNum;
+		PHONE_FIELD_LOCATOR.sendKeys(enteredphoneNum);
 	}
 	
 	public void insertAddress(String address) {
